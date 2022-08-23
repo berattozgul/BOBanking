@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "709365559296",
+    "project_id": "bobanking-55115",
+    "storage_bucket": "bobanking-55115.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709365559296:android:b752ad39fdd887fcb828e5",
+        "android_client_info": {
+          "package_name": "com.example.bobanking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709365559296-jarva7v5evv5jsuugjrpnbk53r0jco8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN5gbb6PpEVVA2zqxccodA6zhnNftZD1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709365559296-jarva7v5evv5jsuugjrpnbk53r0jco8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
