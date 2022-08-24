@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
 import android.text.Html;
@@ -34,20 +35,20 @@ public class UserFragment extends Fragment {
 
     private TextView txtProgress, txtWelcome;
     private ProgressBar progressBar;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private ObjectAnimator objectAnimator;
 
-    User u;
+    private User u;
 
-    private int balance, sBalance;
-    private int pStatus = 0;
-    private Handler handler = new Handler();
+    private int balance;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_user, container, false);
+        swipeRefreshLayout = v.findViewById(R.id.user_fragment_refresh_layout);
 
         txtWelcome = v.findViewById(R.id.welcome_txt);
         txtProgress = v.findViewById(R.id.txtProgress);
@@ -59,16 +60,36 @@ public class UserFragment extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Users").child(firebaseUser.getUid());
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
 
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String text1 = "Welcome, <b><i>" + u.getName() + "</i></b>";
+                        txtWelcome.setText(Html.fromHtml(text1));
+                        balance = u.getBalance();
+                        txtProgress.setText(balance + " TL");
+                        objectAnimator = ObjectAnimator.ofInt(progressBar, "progress", balance);
+                        objectAnimator.start();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                u=snapshot.getValue(User.class);
-                String text1="Welcome, <b><i>"+u.getName()+"</i></b>";
+                u = snapshot.getValue(User.class);
+                String text1 = "Welcome, <b><i>" + u.getName() + "</i></b>";
                 txtWelcome.setText(Html.fromHtml(text1));
-                txtProgress.setText(balance+" TL");
                 balance = u.getBalance();
-                objectAnimator=ObjectAnimator.ofInt(progressBar,"progress",balance);
+                txtProgress.setText(balance + " TL");
+                objectAnimator = ObjectAnimator.ofInt(progressBar, "progress", balance);
                 objectAnimator.start();
             }
 
@@ -78,29 +99,7 @@ public class UserFragment extends Fragment {
             }
         });
 
-        //balance alınacak
-/*
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (pStatus <= sBalance) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progressBar.setProgress(pStatus);
-                            txtProgress.setText(pStatus + " %");
-                        }
-                    });
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    pStatus++;
-                }
-            }
-        }).start();
- */
+
         return v;
     }
 

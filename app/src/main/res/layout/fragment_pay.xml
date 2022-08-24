@@ -13,18 +13,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@color/black"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/pay_frag_send_someone_bt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:background="@android:color/transparent"
-                android:text="Send someone money">
+                android:text="Transfer Money"
+                android:textColor="@color/black">
+
+            </Button>
+
+            <Button
+                android:id="@+id/pay_frag_log_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="logOut"
+                android:textColor="@color/black">
 
             </Button>
 
         </LinearLayout>
     </ScrollView>
+
 </FrameLayout>

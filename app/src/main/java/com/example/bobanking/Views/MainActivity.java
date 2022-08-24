@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.bobanking.Fragments.PayFragment;
 import com.example.bobanking.Fragments.UserFragment;
@@ -22,33 +24,41 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+
     private UserFragment userFragment;
     private PayFragment payFragment;
 
     private FragmentTransaction transaction;
     private BottomNavigationView bottomNavigationView;
 
-    public void init(){
-        bottomNavigationView=findViewById(R.id.main_activity_bottomView);
+    public void init() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
-        userFragment=new UserFragment();
-        payFragment=new PayFragment();
+        bottomNavigationView = findViewById(R.id.main_activity_bottomView);
+
+        userFragment = new UserFragment();
+        payFragment = new PayFragment();
+
         setFragment(userFragment);
-
 
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch(item.getItemId()){
+                        switch (item.getItemId()) {
                             case R.id.bottom_nav_ic_pay:
                                 setFragment(payFragment);
                                 return true;
@@ -60,12 +70,17 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+        if (firebaseUser == null) {
+            Toast.makeText(this, "Please Log In to continue", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
     }
-    private void setFragment(Fragment frag){
-        transaction= getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(android.R.anim.fade_in,android.R.anim.fade_out);
+
+    private void setFragment(Fragment frag) {
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         transaction.addToBackStack(null);
-        transaction.replace(R.id.main_activity_frameLayout,frag);
+        transaction.replace(R.id.main_activity_frameLayout, frag);
         transaction.commit();
     }
 }

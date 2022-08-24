@@ -14,27 +14,25 @@
         android:theme="@style/Theme.BOBanking"
         tools:targetApi="31">
         <activity
+            android:name=".Views.TransferActivity"
+            android:exported="false" />
+        <activity
             android:name=".Views.RegisterActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:screenOrientation="portrait"
+            android:exported="false"></activity>
         <activity
             android:name=".Views.LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER">
 
-                </category>
+                <category android:name="android.intent.category.LAUNCHER"></category>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Views.MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

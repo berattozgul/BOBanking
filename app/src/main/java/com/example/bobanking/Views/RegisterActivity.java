@@ -22,17 +22,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private DatabaseReference mref;
-    private FirebaseUser mFUser;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
+    private FirebaseUser firebaseUser;
     private User mUser;
     private TextInputLayout inputName, inputEmail, inputPass, inputrePass, inputNickname;
     private EditText nameET, emailET, passET, rePassET, nicknameET;
     private String txtName, txtEmail, txtPass, txtrePass, txtNickName;
 
     private void init() {
-        mAuth = FirebaseAuth.getInstance();
-        mref = FirebaseDatabase.getInstance().getReference("Users");
+        firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
         inputNickname = findViewById(R.id.register_nickname);
         inputName = findViewById(R.id.register_inputName);
@@ -68,15 +68,15 @@ public class RegisterActivity extends AppCompatActivity {
                     if (!TextUtils.isEmpty(txtPass)) {
                         if (!TextUtils.isEmpty(txtrePass)) {
                             if (txtPass.equals(txtrePass)) {
-                                mAuth.createUserWithEmailAndPassword(txtEmail, txtPass)
+                                firebaseAuth.createUserWithEmailAndPassword(txtEmail, txtPass)
                                         .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
-                                                    mFUser = mAuth.getCurrentUser();
-                                                    if (mFUser != null) {
-                                                        mUser = new User(mFUser.getUid(), txtName, txtNickName, txtEmail, 0);
-                                                        mref.child(mFUser.getUid()).setValue(mUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    firebaseUser = firebaseAuth.getCurrentUser();
+                                                    if (firebaseUser != null) {
+                                                        mUser = new User(firebaseUser.getUid(), txtName, txtNickName, txtEmail, 0);
+                                                        databaseReference.child(firebaseUser.getUid()).setValue(mUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             @Override
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if (task.isSuccessful()) {
