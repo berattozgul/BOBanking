@@ -31,16 +31,16 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="How much money do you want to transfer this account?" />
 
     <SeekBar
         android:id="@+id/seekBar2"
-        android:progressDrawable="@drawable/custom_seek_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/custom_seek_bar" />
 
     <TextView
         android:id="@+id/textview1"
@@ -49,8 +49,8 @@
 
     <Button
         android:id="@+id/sendButton"
-        android:layout_width="match_parent"
-        android:onClick="transferToAccount"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="transferToAccount"
         android:text="Send" />
 </LinearLayout>

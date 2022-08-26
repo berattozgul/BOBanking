@@ -3,121 +3,142 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:padding="20dp"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".Views.RegisterActivity">
-    <TextView
-        android:id="@+id/registerTXT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="40dp"
-        android:text="Register" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:counterEnabled="true"
-        android:layout_marginTop="20dp"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        android:id="@+id/register_inputName"
-        app:counterMaxLength="20">
-        <EditText
-            android:layout_width="match_parent"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:id="@+id/nameET"
-            android:maxLength="20"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:counterEnabled="true"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/register_nickname"
-        app:counterMaxLength="50">
-        <EditText
-            android:layout_width="match_parent"
-            android:hint="Nickname"
-            android:inputType="text"
-            android:id="@+id/nickNameET"
-            android:maxLength="50"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:counterEnabled="true"
-        app:boxCornerRadiusTopStart="10dp"
-        android:layout_marginTop="20dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        android:id="@+id/register_inputEmail"
-        app:counterMaxLength="100">
-        <EditText
-            android:layout_width="match_parent"
-            android:hint="Email"
-            android:id="@+id/emailET"
-            android:inputType="textEmailAddress"
-            android:maxLength="100"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:counterEnabled="true"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/register_inputPass"
-        app:counterMaxLength="50">
-        <EditText
-            android:layout_width="match_parent"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:id="@+id/passET"
-            android:maxLength="50"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:counterEnabled="true"
-        app:boxCornerRadiusTopStart="10dp"
-        app:boxCornerRadiusBottomStart="5dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/register_inputrePass"
-        app:counterMaxLength="50">
-        <EditText
-            android:layout_width="match_parent"
-            android:hint="Re-Enter Password"
-            android:inputType="textPassword"
-            android:id="@+id/rePassET"
-            android:maxLength="50"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/registerBT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="register"
-        android:text="Register" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/registerTXT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Register"
+                android:textSize="40dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_inputName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="20">
+
+                <EditText
+                    android:id="@+id/nameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:maxLength="20"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_nickname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50">
+
+                <EditText
+                    android:id="@+id/nickNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nickname"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_inputEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="100">
+
+                <EditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="100"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_inputPass"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50">
+
+                <EditText
+                    android:id="@+id/passET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLength="50"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_inputrePass"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="50">
+
+                <EditText
+                    android:id="@+id/rePassET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Re-Enter Password"
+                    android:inputType="textPassword"
+                    android:maxLength="50"
+                    android:textSize="17sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/registerBT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="register"
+                android:text="Register" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
