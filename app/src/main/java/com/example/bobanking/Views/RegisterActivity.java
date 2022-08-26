@@ -22,10 +22,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
+
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private FirebaseUser firebaseUser;
-    private User mUser;
+
+    private User u;
+
+
     private TextInputLayout inputName, inputEmail, inputPass, inputrePass, inputNickname;
     private EditText nameET, emailET, passET, rePassET, nicknameET;
     private String txtName, txtEmail, txtPass, txtrePass, txtNickName;
@@ -75,8 +79,8 @@ public class RegisterActivity extends AppCompatActivity {
                                                 if (task.isSuccessful()) {
                                                     firebaseUser = firebaseAuth.getCurrentUser();
                                                     if (firebaseUser != null) {
-                                                        mUser = new User(firebaseUser.getUid(), txtName, txtNickName, txtEmail, 0);
-                                                        databaseReference.child(firebaseUser.getUid()).setValue(mUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        u = new User(firebaseUser.getUid(), txtName, txtNickName, txtEmail, 0);
+                                                        databaseReference.child(firebaseUser.getUid()).setValue(u).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             @Override
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if (task.isSuccessful()) {
@@ -90,7 +94,6 @@ public class RegisterActivity extends AppCompatActivity {
                                                     }
                                                 } else {
                                                     Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
                                                 }
                                             }
                                         });

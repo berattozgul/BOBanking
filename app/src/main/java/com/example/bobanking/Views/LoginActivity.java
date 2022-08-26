@@ -21,16 +21,16 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
 
     private TextInputLayout inputEmail, inputPass;
     private EditText editEmail, editPass;
     private String txtEmail, txtPass;
 
     public void init() {
-        mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
         inputEmail = findViewById(R.id.login_inputEmail);
         inputPass = findViewById(R.id.login_inputPass);
         editEmail = findViewById(R.id.login_EmailET);
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         init();
-        if (mUser != null) {
+        if (firebaseUser != null) {
             finish();
             startActivity(new Intent(LoginActivity.this, MainActivity.class)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         txtPass = editPass.getText().toString();
         if (!TextUtils.isEmpty(txtEmail)) {
             if (!TextUtils.isEmpty(txtPass)) {
-                mAuth.signInWithEmailAndPassword(txtEmail, txtPass)
+                firebaseAuth.signInWithEmailAndPassword(txtEmail, txtPass)
                         .addOnCompleteListener(LoginActivity.this,
                                 new OnCompleteListener<AuthResult>() {
                                     @Override

@@ -40,7 +40,7 @@ public class PayFragment extends Fragment {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle(R.string.app_name);
-                builder.setMessage("Are you sure to logout?");
+                builder.setMessage("Are you sure do you want to logout?");
                 builder.setNegativeButton("No", null);
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override

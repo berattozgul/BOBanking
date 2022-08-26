@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1855" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/drawable/custom_progressbar_drawable.xml" value="0.2955" />
+        <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/drawable/custom_seek_bar.xml" value="0.2415" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1855" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/drawable/ic_pay.xml" value="0.1855" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/drawable/ic_profile.xml" value="0.1855" />
@@ -12,7 +13,7 @@
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/activity_register.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/activity_transfer.xml" value="0.22" />
+        <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/activity_transfer.xml" value="0.5" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/fragment_pay.xml" value="0.49444444444444446" />
         <entry key="..\:/Users/berat/AndroidStudioProjects/BOBanking/app/src/main/res/layout/fragment_user.xml" value="0.24157303370786518" />
       </map>
